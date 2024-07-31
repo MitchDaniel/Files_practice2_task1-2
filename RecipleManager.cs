@@ -19,6 +19,8 @@ namespace Task1
                     swriter.WriteLine(recipe.DescriptionCooking);
                     swriter.WriteLine(recipe.CookingTime.ToString());
                     swriter.WriteLine(recipe.Ingredients);
+                    swriter.WriteLine(recipe.TypeRecipe);
+                    swriter.WriteLine(recipe.Calories);
                 }
             }
         }
@@ -39,9 +41,15 @@ namespace Task1
                     string descriptionCooking = sreader.ReadLine();
                     string cookingTimeStr = sreader.ReadLine();
                     string ingredients = sreader.ReadLine();
-                    if (TimeOnly.TryParse(cookingTimeStr, out TimeOnly cookingTime))
+                    string typeRecipe = sreader.ReadLine();
+                    string calories = sreader.ReadLine();
+                    if (TimeOnly.TryParse(cookingTimeStr, out TimeOnly cookingTime) && Enum.TryParse(typeRecipe, out TypeRecipe tempTypeRecipe) && int.TryParse(calories, out int tempCalories))
                     {
-                        recipes.Add(new Recipe(name, kitchen, ingredients, cookingTime, descriptionCooking));
+                        recipes.Add(new Recipe(name, kitchen, ingredients, cookingTime, descriptionCooking, tempTypeRecipe, tempCalories));
+                    }
+                    else
+                    {
+                        throw new InvalidCastException();
                     }
                 }
             }

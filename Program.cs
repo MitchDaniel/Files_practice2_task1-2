@@ -60,7 +60,7 @@ namespace CSharp_Practice_modul_12_part_02
 
             //RecipleManager.Save(recipes, @"C:\Users\Brill\Desktop\Source.txt");
 
-            RecipeCollections MommysRecipes = RecipleManager.Load(@"C:\Users\Brill\Desktop\Source.txt");
+            //RecipeCollections MommysRecipes = RecipleManager.Load(@"C:\Users\Brill\Desktop\Source.txt");
             //foreach (var recipe in MommysRecipes)
             //{
             //    Console.WriteLine(recipe.Name);
@@ -71,21 +71,43 @@ namespace CSharp_Practice_modul_12_part_02
             //    Console.WriteLine();
             //}
 
-            MommysRecipes.Add(new Recipe("Вареники с картошкой", "Украинская", "Мука, вода, соль, картофель, лук, масло", new TimeOnly(1, 15), "Замесить тесто, отварить картофель, сделать начинку из картофеля и лука, слепить вареники и отварить их"),
-                              new Recipe("Голубцы", "Украинская", "Капуста, мясо, рис, лук, морковь, томатная паста, сметана", new TimeOnly(1, 45), "Отварить капусту, подготовить начинку из мяса, риса и лука, завернуть начинку в капустные листья, тушить с томатной пастой и сметаной"));
-            //var temp = MommysRecipes.FindRecipes((x) => x.Kitchen == "Украинская");
-            //foreach (var recipe in temp)
-            //{
-            //    Console.WriteLine(recipe.Name);
-            //    Console.WriteLine(recipe.Kitchen);
-            //    Console.WriteLine(recipe.DescriptionCooking);
-            //    Console.WriteLine(recipe.CookingTime.ToString());
-            //    Console.WriteLine(recipe.Ingredients);
-            //    Console.WriteLine();
-            //}
-            ;
-            RecipleManager.Save(RecipleManager.GetReport(MommysRecipes, (x) => x.CookingTime < new TimeOnly(1, 0)),
-                @"C:\Users\Brill\Desktop\Report.txt");
+            //MommysRecipes.Add(new Recipe("Вареники с картошкой", "Украинская", "Мука, вода, соль, картофель, лук, масло", new TimeOnly(1, 15), "Замесить тесто, отварить картофель, сделать начинку из картофеля и лука, слепить вареники и отварить их", TypeRecipe.First, 600),
+            //                  new Recipe("Голубцы", "Украинская", "Капуста, мясо, рис, лук, морковь, томатная паста, сметана", new TimeOnly(1, 45), "Отварить капусту, подготовить начинку из мяса, риса и лука, завернуть начинку в капустные листья, тушить с томатной пастой и сметаной", TypeRecipe.Second, 700));
+            ////var temp = MommysRecipes.FindRecipes((x) => x.Kitchen == "Украинская");
+            ////foreach (var recipe in temp)
+            ////{
+            ////    Console.WriteLine(recipe.Name);
+            ////    Console.WriteLine(recipe.Kitchen);
+            ////    Console.WriteLine(recipe.DescriptionCooking);
+            ////    Console.WriteLine(recipe.CookingTime.ToString());
+            ////    Console.WriteLine(recipe.Ingredients);
+            ////    Console.WriteLine();
+            ////}
+            //;
+            //RecipleManager.Save(RecipleManager.GetReport(MommysRecipes, (x) => x.CookingTime < new TimeOnly(1, 0)),
+            //    @"C:\Users\Brill\Desktop\Report.txt");
+
+
+            //RecipeCollections recipes = new RecipeCollections();
+            //recipes.Add(new Recipe("Борщ", "Украинская", "Вода, соль, буряк", new TimeOnly(2, 30), "Закипетить воду, посолить, нарезать буряк", TypeRecipe.First, 300),
+            //            new Recipe("Плов", "Узбекская", "Рис, мясо, морковь, лук, специи", new TimeOnly(1, 45), "Обжарить мясо, добавить лук и морковь, затем рис и специи", TypeRecipe.Second, 100),
+            //            new Recipe("Пицца Маргарита", "Итальянская", "Тесто, томатный соус, сыр, базилик", new TimeOnly(0, 25), "Раскатать тесто, смазать томатным соусом, добавить сыр и базилик, запечь в духовке", TypeRecipe.Second, 100),
+            //            new Recipe("Суши", "Японская", "Рис, рыба, водоросли, соевый соус", new TimeOnly(1, 0), "Приготовить рис, нарезать рыбу, свернуть суши в водорослях, подавать с соевым соусом", TypeRecipe.Second, 400),
+            //            new Recipe("Том Ям", "Тайская", "Креветки, кокосовое молоко, лимонник, галангал, лайм", new TimeOnly(0, 40), "Кипятить кокосовое молоко, добавить креветки и специи, варить до готовности", TypeRecipe.First, 500),
+            //            new Recipe("Рататуй", "Французская", "Кабачки, баклажаны, помидоры, перец, лук, чеснок, зелень", new TimeOnly(1, 15), "Нарезать овощи, обжарить, запекать в духовке, посыпать зеленью перед подачей", TypeRecipe.Appetizer, 100));
+            //RecipleManager.Save(recipes, @"C:\Users\Brill\Desktop\Source.txt");
+            RecipeCollections MommysRecipes = RecipleManager.Load(@"C:\Users\Brill\Desktop\Source.txt");
+            foreach (var recipe in MommysRecipes)
+            {
+                Console.WriteLine(recipe.Name);
+                Console.WriteLine(recipe.Kitchen);
+                Console.WriteLine(recipe.DescriptionCooking);
+                Console.WriteLine(recipe.CookingTime.ToString());
+                Console.WriteLine(recipe.Ingredients);
+                Console.WriteLine(recipe.TypeRecipe);
+                Console.WriteLine(recipe.Calories);
+                Console.WriteLine();
+            }
 
         }
     }
