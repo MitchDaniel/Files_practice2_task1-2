@@ -61,15 +61,32 @@ namespace CSharp_Practice_modul_12_part_02
             //RecipleManager.Save(recipes, @"C:\Users\Brill\Desktop\Source.txt");
 
             RecipeCollections MommysRecipes = RecipleManager.Load(@"C:\Users\Brill\Desktop\Source.txt");
-            foreach (var recipe in MommysRecipes)
-            {
-                Console.WriteLine(recipe.Name);
-                Console.WriteLine(recipe.Kitchen);
-                Console.WriteLine(recipe.DescriptionCooking);
-                Console.WriteLine(recipe.CookingTime.ToString());
-                Console.WriteLine(recipe.Ingredients);
-                Console.WriteLine();
-            }
+            //foreach (var recipe in MommysRecipes)
+            //{
+            //    Console.WriteLine(recipe.Name);
+            //    Console.WriteLine(recipe.Kitchen);
+            //    Console.WriteLine(recipe.DescriptionCooking);
+            //    Console.WriteLine(recipe.CookingTime.ToString());
+            //    Console.WriteLine(recipe.Ingredients);
+            //    Console.WriteLine();
+            //}
+
+            MommysRecipes.Add(new Recipe("Вареники с картошкой", "Украинская", "Мука, вода, соль, картофель, лук, масло", new TimeOnly(1, 15), "Замесить тесто, отварить картофель, сделать начинку из картофеля и лука, слепить вареники и отварить их"),
+                              new Recipe("Голубцы", "Украинская", "Капуста, мясо, рис, лук, морковь, томатная паста, сметана", new TimeOnly(1, 45), "Отварить капусту, подготовить начинку из мяса, риса и лука, завернуть начинку в капустные листья, тушить с томатной пастой и сметаной"));
+            //var temp = MommysRecipes.FindRecipes((x) => x.Kitchen == "Украинская");
+            //foreach (var recipe in temp)
+            //{
+            //    Console.WriteLine(recipe.Name);
+            //    Console.WriteLine(recipe.Kitchen);
+            //    Console.WriteLine(recipe.DescriptionCooking);
+            //    Console.WriteLine(recipe.CookingTime.ToString());
+            //    Console.WriteLine(recipe.Ingredients);
+            //    Console.WriteLine();
+            //}
+            ;
+            RecipleManager.Save(RecipleManager.GetReport(MommysRecipes, (x) => x.CookingTime < new TimeOnly(1, 0)),
+                @"C:\Users\Brill\Desktop\Report.txt");
+
         }
     }
 }
@@ -88,3 +105,21 @@ namespace CSharp_Practice_modul_12_part_02
 // Искать рецепты по разным характеристикам
 // Сохранять рецепты в файл
 // Загружать рецепты из файла
+
+//Задание 2:
+//Добавьте к приложению из первого задания возможность генерировать отчёты.
+//Отчёт может быть отображён на экран или сохранён в файл. Создайте такие отчёты:
+// По типу кухни
+// По времени готовки
+// По названиям ингредиентов
+// По названию рецепта
+
+
+//Задание 3:
+//Добавьте к приложению из первого задания дополнительные характеристики:
+// Калории ингредиентов
+// Тип блюда: салат, первое, второе, закуска, десерт
+//Создайте дополнительные отчёты:
+// По сумме калорий
+// По типу блюда
+// По комбинации типов блюд. Например, отчёт, который генерирует комбинацию блюд: закуска, салат, первое, второе, десерт.
